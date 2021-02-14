@@ -6,6 +6,7 @@ const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 
 
+// The alert will be shown after one and half second from the page loads
 setTimeout(function () {
   alert("You can use 'Tab' key on the key board for navigating through buttons and inputs. Thank you for using our website.");
 }, 1500);
@@ -27,15 +28,17 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
   })
+  // spinner ends here
   toggleSpinner();
 }
 
 
 const getImages = (query) => {
-  toggleSpinner();
+  toggleSpinner(); // spinner starts here
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => {
+      // data validation checking 
       if (data.total === 0) {
         document.getElementById("spinner-container").innerHTML = "";
         alert("No result matched. Please try with another name or check your spelling.");
@@ -43,6 +46,7 @@ const getImages = (query) => {
         showImages(data.hits) //here I found a spelling mistake : it was "hitS". 
       }
     })
+    // showing alert in case any error occurs
     .catch(err => {
       document.getElementById("spinner-container").innerHTML = "";
       alert("Some error occurred. Please try again.");
@@ -53,7 +57,7 @@ const getImages = (query) => {
 // Extra feature : spinner on data loading
 const toggleSpinner = () => {
   const spinner = document.getElementById("spinner");
-  // toggling spinner
+  // toggling spinner, slides, photos and the input and button for making slides
   toggleDisplay(spinner);
   toggleDisplay(sliderContainer);
   toggleDisplay(gallery);
@@ -61,6 +65,7 @@ const toggleSpinner = () => {
 }
 
 
+// handling display of different elements
 const toggleDisplay = (element) => {
   element.classList.toggle("d-none");
 }
@@ -160,8 +165,10 @@ const changeSlide = (index) => {
 }
 
 
+//event handler of the search button
 searchBtn.addEventListener('click', function () {
   document.getElementById("goToHome").disabled = false;
+  // checking whether the user has written something or not
   if (document.getElementById("search").value === "") {
     alert("Please Write the Search topic in the Search Box.");
   } else {
@@ -192,11 +199,15 @@ triggerSearchOnEnter("search", searchBtn);
 //triggering Enter for creating slider
 triggerSearchOnEnter("duration", sliderBtn);
 
+
+// handling clicks on slider creator button
 sliderBtn.addEventListener('click', function () {
+  // checking whether the duration is given or not
   if (document.getElementById("duration").value === "") {
     alert("Please select a duration for your slider.")
   } else {
     createSlider();
+    // enabling the extra buttons for better user experience
     document.getElementById("special-btn1").disabled = false;
     document.getElementById("special-btn2").disabled = false;
   }

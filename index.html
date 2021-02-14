@@ -18,6 +18,7 @@
 </head>
 
 <body>
+  <!-- Website Name section-->
   <div id="websiteName">
     <h1>JUST CLICK</h1>
     <h5>Your Online Slide Creator</h5>
@@ -25,6 +26,7 @@
   <div class="container">
     <h4 class="mt-2 text-center">Search Image for creating slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
+      <!-- button for reloading the page -->
       <button type="button" onclick="location.reload()" id="goToHome" class="btn btn-primary mb-2"
         style="margin-right: -18px;" tabindex="1" disabled>Home Page</button>
       <div class="input-group col-md-6 mb-2">
@@ -32,8 +34,10 @@
       </div>
       <button type="button" id="search-btn" class="btn btn-primary mb-2" style="margin-left: -18px;"
         tabindex="3">Search</button>
+      <!-- button for going to the most recent search -->
       <button type="button" id="special-btn1" onclick="backToPrevious(true)" class="btn btn-success mb-2" tabindex="4"
         style="margin-left: 5px;" disabled>Go To Last Search</button>
+      <!-- button for going to the most recent slider created -->
       <button type="button" id="special-btn2" onclick="backToPrevious(false)" class="btn btn-success mb-2" tabindex="5"
         style="margin-left: 5px;" disabled>Go To Last Slider</button>
     </div>
