@@ -69,12 +69,14 @@ const toggleDisplay = (element) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
+  //toggles the class "added"
   element.classList.toggle('added');
   let item = sliders.indexOf(img);
+  //checking whether the item is in the list
   if (item === -1) {
-    sliders.push(img);
+    sliders.push(img); //pushes new item in the list and the slider
   } else {
-    sliders.splice(item, 1);
+    sliders.splice(item, 1); //removes selected item from the list and the slider
   }
 }
 
@@ -175,7 +177,6 @@ searchBtn.addEventListener('click', function () {
 // clicking buttons on keyboard Enter keyup
 const triggerSearchOnEnter = (inputId, btn) => {
   document.getElementById(inputId).addEventListener("keyup", function (event) {
-    // Number 13 is the "Enter" key on the keyboard
     if (event.key === "Enter") {
       // Cancel the default action, if needed
       event.preventDefault();
@@ -202,6 +203,7 @@ sliderBtn.addEventListener('click', function () {
 })
 
 
+//handling clicks on extra buttons
 const backToPrevious = (backToImages) => {
   if (backToImages === true) {
     imagesArea.style.display = 'block';
