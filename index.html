@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Just CLick</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="websiteName">
+    <h1>JUST CLICK</h1>
+    <h5>Your Online Slide Creator</h5>
+  </div>
+  <div class="container">
+    <h4 class="mt-2 text-center">Search Image for creating slider</h4>
+    <div class="form-inline mt-3 d-flex justify-content-center">
+      <button type="button" onclick="location.reload()" id="goToHome" class="btn btn-primary mb-2"
+        style="margin-right: -18px;" tabindex="1" disabled>Home Page</button>
+      <div class="input-group col-md-6 mb-2">
+        <input type="text" class="form-control" id="search" placeholder="search images" tabindex="2">
+      </div>
+      <button type="button" id="search-btn" class="btn btn-primary mb-2" style="margin-left: -18px;"
+        tabindex="3">Search</button>
+      <button type="button" id="special-btn1" onclick="backToPrevious(true)" class="btn btn-success mb-2" tabindex="4"
+        style="margin-left: 5px;" disabled>Go To Last Search</button>
+      <button type="button" id="special-btn2" onclick="backToPrevious(false)" class="btn btn-success mb-2" tabindex="5"
+        style="margin-left: 5px;" disabled>Go To Last Slider</button>
+    </div>
+    <div id="spinner-container" class="d-flex justify-content-center m-5">
+      <div id="spinner" class="spinner-border text-primary d-none" style="width: 3rem; height: 3rem;" role="status">
+      </div>
+    </div>
+  </div>
+  <section class="images" id="sliderInputAndButton">
+    <div class="justify-content-around align-items-center gallery-header mb-2">
+      <h3 class="head-title text-center">Select image for creating slider</h3>
+      <div class="input-group col-md-3 mb-2 mb-md-0">
+        <!-- The spelling of this input's id was wrong for which it was not working -->
+        <button class="btn btn-success" disabled>Timer</button>
+        <input class="form-control" id="duration" placeholder="slider change duration" tabindex="6">
+      </div>
+      <button id="create-slider" class="btn btn-primary px-5" tabindex="7">Create slider</button>
+    </div>
+    <div class="row gallery">
+    </div>
+  </section>
+  <!-- slider -->
+  <div class="main">
+    <section class="mt-5" id="sliders">
+    </section>
+    <div class="dots d-flex mt-2 w-100 justify-content-center align-items-center bg-light">
+      <span class="dot" onclick="changeItem(-1)"></span>
+      <span class="dot" onclick="changeItem(1)"></span>
+    </div>
+  </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
